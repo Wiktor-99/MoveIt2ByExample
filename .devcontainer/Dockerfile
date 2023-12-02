@@ -1,16 +1,20 @@
-FROM althack/ros2:humble-dev
+ARG ROS_DISTRO=humble
+FROM ros:humble
 
-# ** [Optional] Uncomment this section to install additional packages. **
-#
-# ENV DEBIAN_FRONTEND=noninteractive
-# RUN apt-get update \
-#    && apt-get -y install --no-install-recommends <your-package-list-here> \
-#    #
-#    # Clean up
-#    && apt-get autoremove -y \
-#    && apt-get clean -y \
-#    && rm -rf /var/lib/apt/lists/*
-# ENV DEBIAN_FRONTEND=dialog
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update --fix-missing \
+    && apt-get -y install --no-install-recommends \
+    ros-$ROS_DISTRO-xacro ros-$ROS_DISTRO-ros2-control \
+    ros-$ROS_DISTRO-ros2-controllers ros-$ROS_DISTRO-rmw-cyclonedds-cpp \
+    ros-$ROS_DISTRO-moveit ros-$ROS_DISTRO-moveit-ros-perception \
+    ros-humble-moveit-planners ros-$ROS_DISTRO-rviz2 \
+    ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins \
+    ros-$ROS_DISTRO-rviz-visual-tools ros-$ROS_DISTRO-rviz-rendering \
+    ros-$ROS_DISTRO-octomap-rviz-plugins \
+    && apt-get autoremove -y \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+ENV DEBIAN_FRONTEND=dialog
 
 # Set up auto-source of workspace for ros user
 ARG WORKSPACE
