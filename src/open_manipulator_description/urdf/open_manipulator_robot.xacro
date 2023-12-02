@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot name="open_manipulator" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find open_manipulator_description)/urdf/materials.xacro" />
+  <xacro:include filename="$(find open_manipulator_description)/urdf/open_manipulator.xacro" />
+
+  <link name="world"/>
+
+  <joint name="world_fixed" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="world"/>
+    <child link="link1"/>
+  </joint>
+
+</robot>
