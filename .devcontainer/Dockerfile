@@ -1,5 +1,5 @@
 ARG ROS_DISTRO=humble
-FROM ros:humble
+FROM althack/ros2:$ROS_DISTRO-dev
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update --fix-missing \
