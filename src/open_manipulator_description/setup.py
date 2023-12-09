@@ -19,7 +19,7 @@ setup(
     zip_safe=True,
     maintainer='Wiktor Bajor',
     maintainer_email='wiktorbajor1@gmail.com',
-    description='Description in URDF format of OpenManipulator<',
+    description='Description in URDF format of OpenManipulator',
     license='Apache License 2.0',
     tests_require=['pytest'],
     entry_points={
