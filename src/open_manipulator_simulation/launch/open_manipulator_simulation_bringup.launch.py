@@ -9,6 +9,13 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     open_manipulator_simulation = get_package_share_directory('open_manipulator_simulation')
+    open_manipulator_spawner = Node(
+        package='gazebo_ros',
+        executable='spawn_entity.py',
+        arguments=['-entity', 'open_manipulator', '-topic', 'robot_description'],
+        output='screen',
+        emulate_tty=True)
+
     return LaunchDescription([
         DeclareLaunchArgument(
             name='world',
@@ -29,8 +36,5 @@ def generate_launch_description():
             PythonLaunchDescriptionSource(
                 [open_manipulator_simulation, '/launch/gazebo.launch.py'])
         ),
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                [open_manipulator_simulation, '/launch/open_manipulator_spawner.launch.py'])
-        )
+        open_manipulator_spawner
     ])
