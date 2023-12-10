@@ -6,9 +6,28 @@
 
   <link name="world"/>
 
+  <link name="base">
+      <visual>
+        <geometry>
+          <cylinder length="0.6" radius="0.2"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder length="0.6" radius="0.2"/>
+        </geometry>
+      </collision>
+   </link>
+
   <joint name="world_fixed" type="fixed">
     <origin xyz="0 0 0.05" rpy="0 0 0"/>
     <parent link="world"/>
+    <child link="base"/>
+  </joint>
+
+   <joint name="based_fixed" type="fixed">
+    <origin xyz="0 0 0.3" rpy="0 0 0"/>
+    <parent link="base"/>
     <child link="link1"/>
   </joint>
 
