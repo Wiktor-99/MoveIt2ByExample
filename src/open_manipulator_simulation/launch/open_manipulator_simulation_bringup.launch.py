@@ -13,6 +13,11 @@ def generate_launch_description():
         arguments=['-entity', 'open_manipulator', '-topic', 'robot_description'],
         output='screen',
         emulate_tty=True)
+    open_manipulator_bringup = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            [get_package_share_directory("open_manipulator_bringup"), "/launch/open_manipulator_bringup.launch.py"]
+        ))
+
 
     return LaunchDescription([
         DeclareLaunchArgument(
@@ -34,5 +39,6 @@ def generate_launch_description():
             PythonLaunchDescriptionSource(
                 [open_manipulator_simulation, '/launch/gazebo.launch.py'])
         ),
-        open_manipulator_spawner
+        open_manipulator_spawner,
+        open_manipulator_bringup
     ])

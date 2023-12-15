@@ -7,8 +7,6 @@ import xacro
 import os
 
 def generate_launch_description():
-
-
     xacro_file = os.path.join(
         get_package_share_directory('open_manipulator_description'), 'urdf',
                               'open_manipulator_robot.xacro')
