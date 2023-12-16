@@ -11,7 +11,7 @@ def generate_launch_description():
         ))
     open_manipulator_moveit = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            [get_package_share_directory("open_manipulator_moveit"), "/launch/move_group_with_rviz.launch"]
+            [get_package_share_directory("open_manipulator_moveit"), "/launch/move_group_with_rviz.launch.py"]
         ))
 
     return LaunchDescription([
