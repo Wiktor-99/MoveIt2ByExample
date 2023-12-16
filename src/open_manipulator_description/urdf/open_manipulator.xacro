@@ -228,4 +228,11 @@
                izz="1.0e-03" />
     </inertial>
   </link>
+
+  <link name="end_efector_link" />
+  <joint name="end_efector" type="fixed">
+    <parent link="link5"/>
+    <child link="end_efector_link"/>
+    <origin xyz="0.1 0.0 0.0" rpy="0 0 0"/>
+  </joint>
 </robot>

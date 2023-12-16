@@ -9,5 +9,11 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(
             [get_package_share_directory("open_manipulator_control"), "/launch/control.launch.py"]
         ))
+    open_manipulator_moveit = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            [get_package_share_directory("open_manipulator_moveit"), "/launch/move_group.launch.py"]
+        ))
 
-    return LaunchDescription([open_manipulator_control])
+    return LaunchDescription([
+        open_manipulator_control,
+        open_manipulator_moveit])
