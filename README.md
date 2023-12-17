@@ -7,6 +7,9 @@ This repository is an example of the basic setup of MoveIt2 for a custom manipul
 * MoveIt setup that launches move_group and Rviz2
 * Mimic joints setup
 
+
+![open manipulator gazebo](/img/open_manipulator_gazebo.png " ") ![open manipulator gazebo](/img/open_manipulator_rviz.png " ")
+
 ## Launching Example
 
 To launch the example, you need to open the repository in VSCode using Dev Container. After setting up the container, you only need to run the commands below.
