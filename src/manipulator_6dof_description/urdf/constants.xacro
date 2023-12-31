@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:property name="joint_offest" value="0.01" />
+  <xacro:property name="base_link_hight" value="0.3" />
+  <xacro:property name="base_link_radius" value="0.3" />
+  <xacro:property name="base_link_mass" value="0.5" />
+  <xacro:property name="offset_from_ground_to_base_link" value="${base_link_hight/2 + 0.05}" />
+  <xacro:property name="offset_from_base_link_link1" value="${base_link_hight/2 + joint_offest}" />
+  <xacro:property name="manipualtor_conectors_hight" value="0.03" />
+  <xacro:property name="manipualtor_conectors_radius" value="0.03" />
+  <xacro:property name="manipualtor_conectors_mass" value="0.3" />
+
+  <xacro:property name="link1_mass" value="2" />
+  <xacro:property name="link1_radius" value="0.1" />
+  <xacro:property name="link1_hight" value="0.1" />
+
+  <xacro:property name="link2_mass" value="1" />
+  <xacro:property name="link2_depth" value="0.06" />
+  <xacro:property name="link2_width" value="0.06" />
+  <xacro:property name="link2_hight" value="0.4" />
+
+  <xacro:property name="link4_mass" value="1" />
+  <xacro:property name="link4_depth" value="0.4" />
+  <xacro:property name="link4_width" value="0.06" />
+  <xacro:property name="link4_hight" value="0.06" />
+
+  <xacro:property name="link6_mass" value="0.5" />
+  <xacro:property name="link6_depth" value="0.2" />
+  <xacro:property name="link6_width" value="0.06" />
+  <xacro:property name="link6_hight" value="0.06" />
+
+  <xacro:property name="link8_mass" value="0.3" />
+  <xacro:property name="link8_depth" value="0.12" />
+  <xacro:property name="link8_width" value="0.06" />
+  <xacro:property name="link8_hight" value="0.06" />
+
+  <xacro:property name="link10_mass" value="0.2" />
+  <xacro:property name="link10_depth" value="0.06" />
+  <xacro:property name="link10_width" value="0.1" />
+  <xacro:property name="link10_hight" value="0.06" />
+
+  <xacro:property name="link12_mass" value="0.1" />
+  <xacro:property name="link12_depth" value="0.01" />
+  <xacro:property name="link12_width" value="0.08" />
+  <xacro:property name="link12_hight" value="0.01" />
+
+  <xacro:property name="gripper_mass" value="0.1" />
+  <xacro:property name="gripper_depth" value="0.03" />
+  <xacro:property name="gripper_width" value="0.01" />
+  <xacro:property name="gripper_hight" value="0.04" />
+  <xacro:property name="gripper_offset" value="0.03" />
+</robot>

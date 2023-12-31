@@ -12,7 +12,8 @@ RUN apt-get update --fix-missing \
     ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins \
     ros-$ROS_DISTRO-rviz-visual-tools ros-$ROS_DISTRO-rviz-rendering \
     ros-$ROS_DISTRO-octomap-rviz-plugins \
-    ros-$ROS_DISTRO-gripper-controllers\
+    ros-$ROS_DISTRO-gripper-controllers \
+    ros-$ROS_DISTRO-joint-state-publisher-gui \
     && apt-get autoremove -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
