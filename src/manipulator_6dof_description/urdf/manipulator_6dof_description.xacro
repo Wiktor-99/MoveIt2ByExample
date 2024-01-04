@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
-<robot name="open_manipulator" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="manipulator_6dof" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:include filename="$(find manipulator_6dof_description)/urdf/constants.xacro" />
   <xacro:include filename="$(find manipulator_6dof_description)/urdf/macros.xacro" />
   <xacro:include filename="$(find manipulator_6dof_description)/urdf/manipulator.xacro" />
+  <xacro:include filename="$(find manipulator_6dof_description)/urdf/ros2_control.xacro" />
 
   <link name="world"/>
   <xacro:cylinder_link

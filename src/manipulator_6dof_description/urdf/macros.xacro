@@ -27,8 +27,8 @@
   </xacro:macro>
 
   <xacro:macro name="cuboid_link" params="name m x y z xyz rpy">
-    <xacro:cuboid_inertia m="${m}" d="${x}" w="${y}" h="${z}" xyz="0 0 0" rpy="0 0 0"/>
     <link name="${name}">
+      <xacro:cuboid_inertia m="${m}" d="${x}" w="${y}" h="${z}" xyz="0 0 0" rpy="0 0 0"/>
       <visual>
         <origin xyz="${xyz}" rpy="${rpy}" />
         <geometry>
@@ -37,6 +37,7 @@
         <material name="grey" />
       </visual>
       <collision>
+        <origin xyz="${xyz}" rpy="${rpy}" />
         <geometry>
           <box size="${x} ${y} ${z}" />
         </geometry>
@@ -45,8 +46,8 @@
   </xacro:macro>
 
   <xacro:macro name="cylinder_link" params="name m hight radius xyz rpy color:=black">
-    <xacro:cylinder_inertia m="${m}" r="${radius}" h="${hight}" xyz="0 0 0" rpy="0 0 0"/>
     <link name="${name}">
+      <xacro:cylinder_inertia m="${m}" r="${radius}" h="${hight}" xyz="0 0 0" rpy="0 0 0"/>
       <visual>
         <origin xyz="${xyz}" rpy="${rpy}" />
         <geometry>
