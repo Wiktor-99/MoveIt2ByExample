@@ -8,8 +8,8 @@ from launch.conditions import IfCondition
 
 
 def generate_launch_description():
-    os.environ["GAZEBO_MODEL_PATH"] = os.path.join(get_package_share_directory('open_manipulator_simulation'), 'models')
-    open_manipulator_simulation_package = get_package_share_directory('open_manipulator_simulation')
+    os.environ["GAZEBO_MODEL_PATH"] = os.path.join(get_package_share_directory('manipulator_simulation'), 'models')
+    manipulator_simulation_package = get_package_share_directory('manipulator_simulation')
     gazebo_ros_package_dir = get_package_share_directory('gazebo_ros')
 
     return LaunchDescription([
@@ -41,7 +41,7 @@ def generate_launch_description():
             PythonLaunchDescriptionSource(
                 [os.path.join(gazebo_ros_package_dir, 'launch', 'gzserver.launch.py')]),
             launch_arguments={
-                'world' : PathJoinSubstitution([open_manipulator_simulation_package, 'worlds', LaunchConfiguration('world')]),
+                'world' : PathJoinSubstitution([manipulator_simulation_package, 'worlds', LaunchConfiguration('world')]),
                 'verbose' : LaunchConfiguration('verbose')
             }.items(),
             condition=IfCondition(LaunchConfiguration('server'))
