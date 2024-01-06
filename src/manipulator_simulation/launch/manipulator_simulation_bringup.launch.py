@@ -43,7 +43,7 @@ def generate_launch_description():
         condition=IfCondition(LaunchConfiguration("use_open_manipulator")))
     manipulator_6dof_bringup = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            [get_package_share_directory("manipulator_6dof_control"), "/launch/control.launch.py"]
+            [get_package_share_directory("manipulator_6dof_bringup"), "/launch/manipulator_6dof_bringup.launch.py"]
         ),
         condition=IfCondition(LaunchConfiguration("use_6dof_manipulator")))
 
