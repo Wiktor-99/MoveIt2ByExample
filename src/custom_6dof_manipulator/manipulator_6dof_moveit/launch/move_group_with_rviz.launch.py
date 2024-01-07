@@ -20,7 +20,9 @@ def generate_launch_description():
         MoveItConfigsBuilder("manipulator_6dof", package_name="manipulator_6dof_moveit")
         .robot_description(
             file_path=os.path.join(
-                get_package_share_directory("manipulator_6dof_description"), "urdf", "manipulator_6dof_description.xacro"
+                get_package_share_directory("manipulator_6dof_description"),
+                "urdf",
+                "manipulator_6dof_description.xacro",
             )
         )
         .planning_scene_monitor(

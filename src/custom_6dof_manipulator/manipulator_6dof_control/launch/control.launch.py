@@ -6,20 +6,24 @@ from ament_index_python.packages import get_package_share_directory
 import xacro
 import os
 
+
 def generate_launch_description():
     xacro_file = os.path.join(
-        get_package_share_directory('manipulator_6dof_description'), 'urdf', 'manipulator_6dof_description.xacro')
-
-    robot_state_publisher = Node(
-        package='robot_state_publisher',
-        executable='robot_state_publisher',
-        output='screen',
-        parameters=[
-            {'use_sim_time': True},
-            {'robot_description': xacro.process_file(xacro_file).toxml()}],
-        emulate_tty=True
+        get_package_share_directory("manipulator_6dof_description"),
+        "urdf",
+        "manipulator_6dof_description.xacro",
     )
 
+    robot_state_publisher = Node(
+        package="robot_state_publisher",
+        executable="robot_state_publisher",
+        output="screen",
+        parameters=[
+            {"use_sim_time": True},
+            {"robot_description": xacro.process_file(xacro_file).toxml()},
+        ],
+        emulate_tty=True,
+    )
 
     load_joint_state_broadcaster = ExecuteProcess(
         cmd=[
@@ -75,6 +79,6 @@ def generate_launch_description():
                     target_action=load_joint_trajectory_controller,
                     on_exit=[load_gripper_controller],
                 )
-            )
+            ),
         ]
     )
