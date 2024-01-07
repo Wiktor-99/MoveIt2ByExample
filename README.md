@@ -8,16 +8,23 @@ This repository is an example of the basic setup of MoveIt2 for a custom manipul
 * Mimic joints setup
 
 
-![open manipulator gazebo](/img/open_manipulator_gazebo.png " ") ![open manipulator gazebo](/img/open_manipulator_rviz.png " ")
+![open manipulator gazebo](/img/open_manipulator_gazebo.png " ") ![open manipulator gazebo](/img/custom_6dof_manipulator.png " ")
 
 ## Launching Example
 
-To launch the example, you need to open the repository in VSCode using Dev Container. After setting up the container, you only need to run the commands below.
+To launch the example, you need to open the repository in VSCode using Dev Container. After setting up the container, you only need to run the commands below to run open manipulator.
 
 ```bash
 ./build.sh &&
 source install/setup.bash &&
-ros2 launch open_manipulator_simulation open_manipulator_simulation_bringup.launch.py
+ros2 launch manipulator_simulation manipulator_simulation_bringup.launch.py use_open_manipulator:=True
+```
+
+And to run custom 6DoF manipulator use following commands:
+```bash
+./build.sh &&
+source install/setup.bash &&
+ros2 launch manipulator_simulation manipulator_simulation_bringup.launch.py use_6dof_manipulator:=True
 ```
 
 To plan a path for the open manipulator in rviz, you need to check the **Allow Approximate IK Solutions** checkbox, as MoveIt does not support IK for manipulators with less than 6 DoF.
@@ -26,7 +33,7 @@ To plan a path for the open manipulator in rviz, you need to check the **Allow A
 When integrating a manipulator with MoveIt, you should be aware of the following:
 
 #### MoveIt supports IK by default only for manipulators with 6 DoF (or more)
-If you want to use it with a manipulator with less than 6 DoF, you need to use **Allow Approximate IK Solutions** or create your own IK plugin, e.g., using IK fast.
+If you want to use it with a manipulator with less than 6 DoF, you need to use **Allow Approximate IK Solutions** or create your own IK plugin, e.g., using IK fast. So to true manipulator with 6DoF launch example with custom manipulator, if you want to try **Approximate IK Solutions** use open manipulator example.
 
 #### ROS2 control configuration
 The names of controllers configured for MoveIt should match the names of your controllers configured for the ROS2 control package.
