@@ -5,7 +5,6 @@
   <version>1.0.0</version>
   <description>Description in URDF format of OpenManipulator</description>
   <maintainer email="wiktorbajor1@gmail.com">Wiktor Bajor</maintainer>
-  <author email="wiktorbajor1@gmail.com">Wiktor Bajor</author>
   <license>Apache License 2.0</license>
 
   <test_depend>ament_copyright</test_depend>
