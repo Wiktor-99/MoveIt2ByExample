@@ -4,12 +4,13 @@
   <xacro:include filename="$(find manipulator_6dof_description)/urdf/macros.xacro" />
   <xacro:include filename="$(find manipulator_6dof_description)/urdf/manipulator.xacro" />
   <xacro:include filename="$(find manipulator_6dof_description)/urdf/ros2_control.xacro" />
+  <xacro:include filename="$(find manipulator_6dof_description)/urdf/depth_camera.xacro" />
 
   <link name="world"/>
   <xacro:cylinder_link
     name="base_link"
     m="${base_link_mass}"
-    hight="${base_link_hight}"
+    height="${base_link_height}"
     radius="${base_link_radius}"
     xyz="0 0 0"
     rpy="0 0 0"

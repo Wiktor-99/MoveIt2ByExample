@@ -45,9 +45,9 @@
     </link>
   </xacro:macro>
 
-  <xacro:macro name="cylinder_link" params="name m hight radius xyz rpy color:=black">
+  <xacro:macro name="cylinder_link" params="name m height radius xyz rpy color:=black">
     <link name="${name}">
-      <xacro:cylinder_inertia m="${m}" r="${radius}" h="${hight}" xyz="0 0 0" rpy="0 0 0"/>
+      <xacro:cylinder_inertia m="${m}" r="${radius}" h="${height}" xyz="0 0 0" rpy="0 0 0"/>
       <visual>
         <origin xyz="${xyz}" rpy="${rpy}" />
         <geometry>
