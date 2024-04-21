@@ -42,7 +42,9 @@ def generate_launch_description():
 
     world_argument = DeclareLaunchArgument(
         "world",
-        default_value="empty.sdf",
+        default_value=os.path.join(
+            get_package_share_directory("manipulator_simulation"), "worlds", "default_world.sdf"
+        ),
         description="Robot controller to start.",
     )
 
