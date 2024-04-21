@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <gazebo>
-    <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+    <plugin name="ign_ros2_control::IgnitionROS2ControlPlugin" filename="libign_ros2_control-system.so" >
       <parameters>$(find manipulator_6dof_control)/config/controllers.yaml</parameters>
     </plugin>
   </gazebo>
@@ -18,7 +18,7 @@
 
   <ros2_control name="6dof_manipulator" type="system">
     <hardware>
-      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      <plugin>ign_ros2_control/IgnitionSystem</plugin>
     </hardware>
 
     <xacro:manipulator_joint_command_by_position name="joint1" initial_value="0"/>
@@ -26,7 +26,7 @@
     <xacro:manipulator_joint_command_by_position name="joint4" initial_value="0"/>
     <xacro:manipulator_joint_command_by_position name="joint6" initial_value="0"/>
     <xacro:manipulator_joint_command_by_position name="joint8" initial_value="0"/>
-    <xacro:manipulator_joint_command_by_position name="joint10" initial_value="0"/>
+   <xacro:manipulator_joint_command_by_position name="joint10" initial_value="0"/>
 
     <joint name="gripper_left_joint">
         <command_interface name="position"/>
