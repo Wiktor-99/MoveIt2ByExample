@@ -5,7 +5,7 @@ from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
 from launch.conditions import IfCondition
-from launch.substitutions import LaunchConfiguration, PythonExpression
+from launch.substitutions import LaunchConfiguration
 
 
 def generate_launch_description():
@@ -19,24 +19,6 @@ def generate_launch_description():
         "use_6dof_manipulator",
         default_value="False",
         description="Launch simulation with custom 6DoF manipulator.",
-    )
-    manipulator_simulation = get_package_share_directory("manipulator_simulation")
-
-    manipulator_spawner = Node(
-        package="gazebo_ros",
-        executable="spawn_entity.py",
-        arguments=["-entity", "manipulator", "-topic", "robot_description"],
-        output="screen",
-        emulate_tty=True,
-        condition=IfCondition(
-            PythonExpression(
-                [
-                    LaunchConfiguration("use_open_manipulator"),
-                    " or ",
-                    LaunchConfiguration("use_6dof_manipulator"),
-                ]
-            )
-        ),
     )
 
     open_manipulator_bringup = IncludeLaunchDescription(
@@ -58,29 +40,45 @@ def generate_launch_description():
         condition=IfCondition(LaunchConfiguration("use_6dof_manipulator")),
     )
 
+    world_argument = DeclareLaunchArgument(
+        "world",
+        default_value="empty.sdf",
+        description="Robot controller to start.",
+    )
+
+    gazebo = IncludeLaunchDescription(
+        os.path.join(
+            get_package_share_directory("ros_ign_gazebo"), "launch", "ign_gazebo.launch.py"
+        ),
+        launch_arguments=[("ign_args", [LaunchConfiguration("world"), " -v 4"])],
+    )
+
+    ign_bridge = Node(
+        package="ros_gz_bridge",
+        executable="parameter_bridge",
+        name="ign_bridge",
+        arguments=[
+            "/clock" + "@rosgraph_msgs/msg/Clock" + "[ignition.msgs.Clock",
+        ],
+        output="screen",
+    )
+
+    gazebo_spawn_robot = Node(
+        package="ros_gz_sim",
+        executable="create",
+        name="spawn_diffdrive_robot",
+        arguments=["-name", "manipulator", "-topic", "robot_description"],
+        output="screen",
+    )
+
     return LaunchDescription(
         [
             use_open_manipulator,
             use_6dof_manipulator,
-            DeclareLaunchArgument(
-                name="world",
-                default_value=os.path.join(
-                    manipulator_simulation, "worlds", "default_world.world"
-                ),
-                description="Full path to the world model file to load",
-            ),
-            DeclareLaunchArgument(
-                name="gui", default_value="true", description='Set to "false" to run headless.'
-            ),
-            DeclareLaunchArgument(
-                name="server",
-                default_value="true",
-                description='Set to "false" not to run gzserver.',
-            ),
-            IncludeLaunchDescription(
-                PythonLaunchDescriptionSource([manipulator_simulation, "/launch/gazebo.launch.py"])
-            ),
-            manipulator_spawner,
+            world_argument,
+            gazebo,
+            ign_bridge,
+            gazebo_spawn_robot,
             open_manipulator_bringup,
             manipulator_6dof_bringup,
         ]
