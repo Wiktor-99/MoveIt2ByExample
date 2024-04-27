@@ -68,7 +68,7 @@ def generate_launch_description():
     gazebo_spawn_robot = Node(
         package="ros_gz_sim",
         executable="create",
-        name="spawn_diffdrive_robot",
+        name="spawn_manipulator",
         arguments=["-name", "manipulator", "-topic", "robot_description"],
         output="screen",
     )
