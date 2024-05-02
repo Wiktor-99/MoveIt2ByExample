@@ -1,5 +1,5 @@
-FROM osrf/ros:humble-desktop-full
-ARG ROS_DISTRO=humble
+FROM osrf/ros:iron-desktop
+ARG ROS_DISTRO=iron
 ARG USERNAME=ros
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
@@ -29,8 +29,9 @@ RUN sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrin
     ros-$ROS_DISTRO-rmw-cyclonedds-cpp \
     ros-$ROS_DISTRO-xacro \
     ros-$ROS_DISTRO-ros2-control \
-    ros-$ROS_DISTRO-ros-ign-bridge \
-    ros-$ROS_DISTRO-ign-ros2-control \
+    ros-$ROS_DISTRO-gz-ros2-control \
+    ros-$ROS_DISTRO-ros-gzharmonic-sim \
+    ros-$ROS_DISTRO-ros-gzharmonic-bridge \
     ros-$ROS_DISTRO-ros2-controllers \
     ros-$ROS_DISTRO-moveit ros-$ROS_DISTRO-moveit-ros-perception \
     ros-$ROS_DISTRO-moveit-planners ros-$ROS_DISTRO-rviz2 \
