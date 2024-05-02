@@ -37,6 +37,7 @@ RUN sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrin
     ros-$ROS_DISTRO-moveit-planners ros-$ROS_DISTRO-rviz2 \
     ros-$ROS_DISTRO-rviz-common ros-$ROS_DISTRO-rviz-default-plugins \
     ros-$ROS_DISTRO-rviz-visual-tools ros-$ROS_DISTRO-rviz-rendering \
+    ros-$ROS_DISTRO-moveit-planners-chomp \
     ros-$ROS_DISTRO-octomap-rviz-plugins \
     ros-$ROS_DISTRO-gripper-controllers \
     pre-commit \
