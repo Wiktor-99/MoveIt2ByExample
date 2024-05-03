@@ -36,7 +36,7 @@
     <origin xyz="0.012 0.0 0.017" rpy="0 0 0"/>
     <axis xyz="0 0 1"/>
     <dynamics damping="0.7" friction="1.0"/>
-    <limit velocity="4.8" effort="1" lower="${-pi*0.9}" upper="${pi*0.9}" />
+    <limit velocity="4.8" effort="5" lower="${-pi*0.9}" upper="${pi*0.9}" />
   </joint>
 
   <xacro:arm_link name="link2" mesh_name="chain_link2.stl">
@@ -56,7 +56,7 @@
     <origin xyz="0.0 0.0 0.0595" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
     <dynamics damping="0.7" friction="1.0"/>
-    <limit velocity="4.8" effort="1" lower="${-pi*0.57}" upper="${pi*0.5}" />
+    <limit velocity="4.8" effort="5" lower="${-pi*0.57}" upper="${pi*0.5}" />
   </joint>
 
   <xacro:arm_link name="link3" mesh_name="chain_link3.stl">
@@ -76,7 +76,7 @@
     <origin xyz="0.024 0 0.128" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
     <dynamics damping="0.7" friction="1.0"/>
-    <limit velocity="4.8" effort="1" lower="${-pi*0.3}" upper="${pi*0.44}" />
+    <limit velocity="4.8" effort="5" lower="${-pi*0.3}" upper="${pi*0.44}" />
   </joint>
 
   <xacro:arm_link name="link4" mesh_name="chain_link4.stl">
@@ -96,7 +96,7 @@
     <origin xyz="0.124 0.0 0.0" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
     <dynamics damping="0.7" friction="1.0"/>
-    <limit velocity="4.8" effort="1" lower="${-pi*0.57}" upper="${pi*0.65}" />
+    <limit velocity="4.8" effort="5" lower="${-pi*0.57}" upper="${pi*0.65}" />
   </joint>
 
   <xacro:arm_link name="link5" mesh_name="chain_link5.stl">
@@ -115,7 +115,7 @@
     <child link="gripper_link"/>
     <origin xyz="0.0817 0.021 0.0" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
-    <limit velocity="4.8" effort="1" lower="-0.010" upper="0.019" />
+    <limit velocity="4.8" effort="5" lower="-0.010" upper="0.019" />
   </joint>
 
   <xacro:arm_link name="gripper_link" mesh_name="chain_link_grip_l.stl">
@@ -134,7 +134,7 @@
     <child link="gripper_link_sub"/>
     <origin xyz="0.0817 -0.021 0" rpy="0 0 0"/>
     <axis xyz="0 -1 0"/>
-    <limit velocity="4.8" effort="1" lower="-0.010" upper="0.019" />
+    <limit velocity="4.8" effort="5" lower="-0.010" upper="0.019" />
     <mimic joint="gripper" multiplier="1"/>
   </joint>
 
