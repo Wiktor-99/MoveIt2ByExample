@@ -22,11 +22,4 @@
     <child link="base_link"/>
   </joint>
 
-  <link name="gripper_right_mimic_link"/>
-  <joint name="gripper_right_joint_mimic" type="fixed">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <parent link="world"/>
-    <child link="gripper_right_mimic_link"/>
-  </joint>
-
 </robot>

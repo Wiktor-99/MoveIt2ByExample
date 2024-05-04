@@ -204,9 +204,21 @@
     <parent link="link12" />
     <child link="gripper_right" />
     <axis xyz="0 1 0" />
-    <limit velocity="4.8" effort="1" lower="-0.025" upper="0.005" />
+    <limit velocity="4.8" effort="1" lower="0.025" upper="-0.005" />
     <mimic joint="gripper_left_joint" multiplier="-1"/>
   </joint>
+
+  <gazebo reference="gripper_left">
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+    <minDepth>0.02</minDepth>
+  </gazebo>
+
+  <gazebo reference="gripper_right">
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+    <minDepth>0.02</minDepth>
+  </gazebo>
 
   <link name="end_efector_link" />
   <joint name="end_efector" type="fixed">
