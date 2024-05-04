@@ -815,14 +815,14 @@
       <pose>0.50239282846450806 1.613800048828125 0.37455999851226807 7.2982502787578255e-17 6.6225800376669506e-17 -1.6267000407244861e-16</pose>
       <link name='box_link'>
         <inertial>
-          <mass>0.5</mass>
+          <mass>0.001</mass>
           <inertia>
-            <ixx>5.2080000000000003e-05</ixx>
+            <ixx>0.00000010417</ixx>
             <ixy>0</ixy>
             <ixz>0</ixz>
-            <iyy>5.2080000000000003e-05</iyy>
+            <iyy>0.00000010417</iyy>
             <iyz>0</iyz>
-            <izz>5.2080000000000003e-05</izz>
+            <izz>0.00000010417</izz>
           </inertia>
           <pose>0 0 0 0 0 0</pose>
         </inertial>
@@ -846,13 +846,6 @@
             </box>
           </geometry>
           <pose relative_to='box_link'>0 0 0 0 0 0</pose>
-          <surface>
-            <friction>
-              <ode/>
-            </friction>
-            <bounce/>
-            <contact/>
-          </surface>
         </collision>
         <pose>0 0 0 0 0 0</pose>
         <enable_wind>false</enable_wind>
