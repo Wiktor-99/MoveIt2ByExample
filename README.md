@@ -38,18 +38,6 @@ If you want to use it with a manipulator with less than 6 DoF, you need to use *
 #### ROS2 control configuration
 The names of controllers configured for MoveIt should match the names of your controllers configured for the ROS2 control package.
 
-#### Using mimic joints
-This one could be tricky; there is an issue when mimic joints are used in simulation. ROS2 control gazebo plugin creates an extra interface with the **_mimic** suffix. This leads to errors in the move_group node. To fix this issue, you need to add the following lines to your URDF for your mimic joint (below is an example for open_manipulator).
-
-```xml
-  <link name="gripper_sub_mimic_link"/>
-  <joint name="gripper_sub_mimic" type="fixed">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <parent link="world"/>
-    <child link="gripper_sub_mimic_link"/>
-  </joint>
-```
-
 #### Fixed joint in center of your end effector
 If you want to have an interactive marker in the center of your end effector, you need to add an extra link and joint that will connect the last joint and the center of the end effector. This joint needs to be added to the planning group and set as the end_effector in the **srdf file**. Here's an example modification of the URDF file (for open_manipulator):
 ```xml
