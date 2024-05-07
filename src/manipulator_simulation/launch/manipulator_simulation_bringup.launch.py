@@ -59,6 +59,7 @@ def generate_launch_description():
         name="gz_bridge",
         arguments=[
             "/clock" + "@rosgraph_msgs/msg/Clock" + "[ignition.msgs.Clock",
+            "/conveyor/cmd_vel" + "@std_msgs/msg/Float64" + "]gz.msgs.Double",
         ],
         output="screen",
     )
