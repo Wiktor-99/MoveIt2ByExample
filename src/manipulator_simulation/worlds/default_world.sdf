@@ -811,47 +811,5 @@
       <self_collide>false</self_collide>
       <static>false</static>
     </model>
-    <model name='box'>
-      <pose>0.50239282846450806 1.613800048828125 0.37455999851226807 7.2982502787578255e-17 6.6225800376669506e-17 -1.6267000407244861e-16</pose>
-      <link name='box_link'>
-        <inertial>
-          <mass>0.001</mass>
-          <inertia>
-            <ixx>0.00000010417</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>0.00000010417</iyy>
-            <iyz>0</iyz>
-            <izz>0.00000010417</izz>
-          </inertia>
-          <pose>0 0 0 0 0 0</pose>
-        </inertial>
-        <visual name='main_visual'>
-          <pose relative_to='box_link'>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.025000000000000001 0.025000000000000001 0.025000000000000001</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>0.600000024 0 0 1</ambient>
-            <diffuse>0.600000024 0 0 1</diffuse>
-            <specular>0.800000012 0.800000012 0.800000012 1</specular>
-          </material>
-        </visual>
-        <collision name='main_collision'>
-          <geometry>
-            <box>
-              <size>0.025000000000000001 0.025000000000000001 0.025000000000000001</size>
-            </box>
-          </geometry>
-          <pose relative_to='box_link'>0 0 0 0 0 0</pose>
-        </collision>
-        <pose>0 0 0 0 0 0</pose>
-        <enable_wind>false</enable_wind>
-      </link>
-      <static>false</static>
-      <self_collide>false</self_collide>
-    </model>
   </world>
 </sdf>
