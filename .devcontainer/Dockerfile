@@ -1,4 +1,4 @@
-FROM osrf/ros:iron-desktop
+FROM osrf/ros:iron-desktop-full
 ARG ROS_DISTRO=iron
 ARG USERNAME=ros
 ARG USER_UID=1000
