@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# Set the default build type
+source /opt/ros/iron/setup.bash
 BUILD_TYPE=RelWithDebInfo
 colcon build \
         --merge-install \
