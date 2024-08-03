@@ -1,3 +1,4 @@
+// Copyright 2024
 #include <chrono>
 
 #include "rclcpp/rclcpp.hpp"
@@ -15,7 +16,7 @@ public:
 private:
   void timer_callback() {
     auto message = std_msgs::msg::Float64();
-    if (not started) {
+    if (!started) {
       message.data = 0.5;
       started = true;
     } else {
