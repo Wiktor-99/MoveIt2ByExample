@@ -28,7 +28,6 @@ RUN sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrin
     bash-completion \
     ros-$ROS_DISTRO-rmw-cyclonedds-cpp \
     ros-$ROS_DISTRO-xacro \
-    ros-$ROS_DISTRO-ament-cmake \
     ros-$ROS_DISTRO-ros2-control \
     ros-$ROS_DISTRO-ros-gzharmonic-sim \
     ros-$ROS_DISTRO-ros-gzharmonic-bridge \
