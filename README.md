@@ -1,5 +1,7 @@
 # MoveIt2ByExample
 
+![iron](https://github.com/Wiktor-99/MoveIt2ByExample/actions/workflows/ros.yaml/badge.svg)
+
 This repository is an example of the basic setup of MoveIt2 for a custom manipulator. This project shows an example of integrating an existing robot with MoveIt. The configuration contains:
 * Robot description
 * Simulation in Gazebo
