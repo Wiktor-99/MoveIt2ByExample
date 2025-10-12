@@ -12,8 +12,8 @@
     "--security-opt=seccomp:unconfined",
     "--security-opt=apparmor:unconfined",
     "--ipc=host",
-    "--runtime=nvidia",
-    "--device=/dev/dri"
+    "--gpus=all",
+    "--runtime=nvidia"
   ],
   "mounts": [
     "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached"

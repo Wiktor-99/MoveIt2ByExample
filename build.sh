@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-source /opt/ros/iron/setup.bash
+source /opt/ros/jazzy/setup.bash
 BUILD_TYPE=RelWithDebInfo
 colcon build \
         --merge-install \
