@@ -60,6 +60,10 @@ def generate_launch_description():
         arguments=[
             "/clock" + "@rosgraph_msgs/msg/Clock" + "[ignition.msgs.Clock",
             "/conveyor/cmd_vel" + "@std_msgs/msg/Float64" + "]gz.msgs.Double",
+            "/camera/image" + "@sensor_msgs/msg/Image" + "[ignition.msgs.Image",
+            "/camera/depth_image" + "@sensor_msgs/msg/Image" + "[ignition.msgs.Image",
+            "/camera/points" + "@sensor_msgs/msg/PointCloud2" + "[ignition.msgs.PointCloudPacked",
+            "/camera/camera_info" + "@sensor_msgs/msg/CameraInfo" + "[ignition.msgs.CameraInfo",
         ],
         output="screen",
     )

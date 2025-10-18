@@ -5,9 +5,10 @@
       <real_time_factor>1</real_time_factor>
       <real_time_update_rate>1000</real_time_update_rate>
     </physics>
-    <plugin name='ignition::gazebo::systems::Physics' filename='libignition-gazebo-physics-system.so'/>
-    <plugin name='ignition::gazebo::systems::UserCommands' filename='libignition-gazebo-user-commands-system.so'/>
-    <plugin name='ignition::gazebo::systems::SceneBroadcaster' filename='libignition-gazebo-scene-broadcaster-system.so'/>
+    <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
+    <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+    <plugin name='gz::sim::systems::Sensors' filename='gz-sim-sensors-system'/>
     <scene>
       <ambient>1 1 1 1</ambient>
       <background>0.300000012 0.699999988 0.899999976 1</background>
@@ -807,9 +808,71 @@
         <odometry_publish_frequency>1</odometry_publish_frequency>
         <velocity_topic>/conveyor/cmd_vel</velocity_topic>
       </plugin>
-      <pose>0.50991374254226685 0.09185250848531723 0.3120650053024292 0 0 -1.564070014204193</pose>
+      <pose>0.65 0.1 0.1 0 0 -1.564070014204193</pose>
       <self_collide>false</self_collide>
       <static>false</static>
+    </model>
+    <model name='cardboard_box_small_30'>
+      <pose>0.65 0.1 0.4 -1.567487996561069e-06 4.1969139540311378e-05 -1.5873096554657491</pose>
+      <link name='small_box_link'>
+        <inertial>
+          <!-- Original mass: 2.0 kg → scaled to 0.054 kg (2 × 0.027) -->
+          <mass>0.054</mass>
+          <inertia>
+            <!-- Original inertias × 0.00243 (0.3^5) -->
+            <ixx>0.000101</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000138</iyy>
+            <iyz>0</iyz>
+            <izz>0.000166</izz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <!-- Original: 0.5 × 0.4 × 0.3 → scaled to 0.15 × 0.12 × 0.09 -->
+              <size>0.15 0.12 0.09</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>10000000</kp>
+                <kd>1</kd>
+                <min_depth>0.001</min_depth>
+                <max_vel>0.1</max_vel>
+              </ode>
+            </contact>
+            <bounce/>
+          </surface>
+        </collision>
+
+        <visual name='visual'>
+          <!-- Visual offset scaled from -0.15 to -0.045 -->
+          <pose>0 0 -0.045 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/cardboard box/3/files/meshes/cardboard_box.dae</uri>
+              <!-- Original scale: 1.2593 1.0074 0.7556 → ×0.3 -->
+              <scale>0.377795688 0.30223655 0.22667741</scale>
+            </mesh>
+          </geometry>
+        </visual>
+
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <static>false</static>
+      <self_collide>false</self_collide>
     </model>
   </world>
 </sdf>

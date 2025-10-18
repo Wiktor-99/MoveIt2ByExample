@@ -3,6 +3,7 @@
   <xacro:include filename="$(find open_manipulator_description)/urdf/materials.xacro" />
   <xacro:include filename="$(find open_manipulator_description)/urdf/open_manipulator.xacro" />
   <xacro:include filename="$(find open_manipulator_description)/urdf/ros2_control.xacro" />
+  <xacro:include filename="$(find open_manipulator_description)/urdf/depth_camera.xacro" />
 
   <xacro:property name="base_link_height" value="0.3"/>
   <xacro:property name="base_link_radius" value="0.3"/>
