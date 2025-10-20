@@ -13,6 +13,7 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 RUN apt-get update && apt-get upgrade -y && apt-get install -y python3-pip
+RUN pip3 install --break-system-packages "numpy<2.0" ultralytics open3d
 ENV DEBIAN_FRONTEND=dialog
 ENV SHELL=/bin/bash
 
