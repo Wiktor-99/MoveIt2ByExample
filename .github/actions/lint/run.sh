@@ -1,7 +1,10 @@
 #!/bin/bash
 set -e
 
-./setup.sh
-export AMENT_CPPCHECK_ALLOW_SLOW_VERSIONS=true
-source /opt/ros/jazzy/setup.bash
-ament_${LINTER} src/
+sudo apt-get update
+source /opt/ros/$ROS_DISTRO/setup.bash
+if [[ "ament_flake8" == "ament_${LINTER}" ]]; then
+    ament_${LINTER} . --config python_linter.flake8
+else
+    ament_${LINTER}
+fi
